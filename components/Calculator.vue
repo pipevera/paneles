@@ -34,12 +34,15 @@
         />
       </div>
       <div class="flex justify-center">
-        <button class="bg-blue-600 text-white rounded-full py-3 px-12 hover:scale-110 transition">
+        <button type="button" @click="resetForm" v-if="resultado" class="bg-blue-600 text-white rounded-full py-3 px-12 hover:scale-110 transition" >
+          volver a calcular
+        </button>
+        <button type="submit"  v-else class="bg-blue-600 text-white rounded-full py-3 px-12 hover:scale-110 transition">
           Calcular
         </button>
       </div>
     </form>
-    <div  class="animate-fadeIn my-20">
+    <div v-if="resultado" class="animate-fadeIn my-20">
       <div class="flex justify-center px-6" >
         <div class="relative rounded-full border-gray-300 border-4 py-4 w-full md:w-1/2 px-4">
           <div class="absolute bottom-14 left-1/2 transform -translate-x-1/2 bg-white px-6">
@@ -65,16 +68,17 @@ export default {
   },
   methods: {
     calcular() {
-      const fit1 = Math.floor(this.anchoTecho / this.anchoPanel) * Math.floor(this.largoTecho / this.largoPanel);
-      const fit2 = Math.floor(this.anchoTecho / this.largoPanel) * Math.floor(this.largoTecho / this.anchoPanel);
+      const fit1 = (this.anchoTecho / this.anchoPanel) * (this.largoTecho / this.largoPanel);
+      const fit2 = (this.anchoTecho / this.largoPanel) * (this.largoTecho / this.anchoPanel);
       return this.resultado = Math.max(fit1, fit2);
-},
+    },
 
     resetForm() {
       this.anchoTecho = null,
       this.largoTecho = null,
       this.anchoPanel = null,
-      this.largoPanel = null
+      this.largoPanel = null,
+      this.resultado = null
     }
   },
 };
