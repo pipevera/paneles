@@ -42,9 +42,9 @@
         </button>
       </div>
     </form>
-    <div v-if="resultado !== null" class="animate-fadeIn my-20">
+    <div v-if="resultado !== null" class="animate-fadeIn py-10">
       <div class="flex justify-center px-6" >
-        <div class="absolute md:w-1/2">
+        <div class="absolute  md:w-1/3">
           <div class="border-gray-300 border-4 py-2  px-4" >
             <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-white px-6">
               <p class="text-lg font-semibold text-[#30323A]" >Resultado</p>
@@ -91,6 +91,8 @@ export default {
       this.largoTecho = null,
       this.anchoPanel = null,
       this.largoPanel = null,
+      this.areaTecho = null,
+      this.areaPanel = null,
       this.resultado = null
     }
   },
