@@ -53,9 +53,7 @@
               <p class="text-lg font-semibold text-center text-[#30323A]" >El área del techo es: {{ this.areaTecho }} (m2)</p>
               <p class="text-lg font-semibold text-center text-[#30323A]" >El área del panel es: {{ this.areaPanel }} (m2)</p>
               <p class="text-3xl font-semibold text-center text-[#30323A]">Total de paneles: {{ this.resultado }}</p>
-  
             </div>
-
           </div>
         </div>
       </div>
@@ -81,8 +79,8 @@ export default {
       this.areaTecho = this.anchoTecho * this.largoTecho;
       this.areaPanel = this.anchoPanel * this.largoPanel
 
-      const orientacion1 = (this.anchoTecho / this.anchoPanel).toFixed(0) * (this.largoTecho / this.largoPanel).toFixed(0);
-      const orientacion2 = (this.anchoTecho / this.largoPanel).toFixed(0) * (this.largoTecho / this.anchoPanel).toFixed(0);
+      const orientacion1 = Math.floor(this.anchoTecho / this.anchoPanel) * Math.floor(this.largoTecho / this.largoPanel);
+      const orientacion2 = Math.floor(this.anchoTecho / this.largoPanel) * Math.floor(this.largoTecho / this.anchoPanel);
       this.resultado = Math.max(orientacion1, orientacion2);
     },
 
